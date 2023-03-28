@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop/widgets/home_app_bar.dart';
 
+import '../widgets/Items_widget.dart';
+import '../widgets/search.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -11,7 +14,6 @@ class HomePage extends StatelessWidget {
         children: [
           const HomeAppBar(),
           Container(
-            height: 500,
             padding: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
               color: Color(0xFFEDECF2),
@@ -20,18 +22,24 @@ class HomePage extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
             ),
-            child: Column(children: [
-              Container(
-                height: 50,
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+            child: Column(
+              children: [
+                const SearchBar(),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.symmetric(vertical: 20),
+                  child: const Text(
+                    'Best selling',
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Color(0xFF4C53A5),
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
-                child: TextFormField(),
-              )
-            ]),
-          )
+                ItemsWidget()
+              ],
+            ),
+          ),
         ],
       ),
     );
