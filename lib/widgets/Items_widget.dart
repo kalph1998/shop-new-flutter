@@ -13,15 +13,21 @@ class ItemsWidget extends StatelessWidget {
       shrinkWrap: true,
       crossAxisSpacing: 20,
       mainAxisSpacing: 20,
-      children: [Item(), Item(), Item()],
+      physics: NeverScrollableScrollPhysics(),
+      children: [
+        for (int i = 1; i < 8; i++)
+          Item(
+            index: i,
+          )
+      ],
     );
   }
 }
 
 class Item extends StatelessWidget {
-  const Item({
-    super.key,
-  });
+  final int index;
+
+  const Item({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +58,10 @@ class Item extends StatelessWidget {
                   child: const Text(
                     '-50%',
                     style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
                 const Icon(
@@ -62,7 +71,14 @@ class Item extends StatelessWidget {
               ],
             ),
           ),
-          Image.asset("images/1.png"),
+          InkWell(
+            onTap: () => {},
+            child: Image.asset(
+              "images/$index.png",
+              width: 120,
+              height: 120,
+            ),
+          ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 7),
             alignment: Alignment.centerLeft,
@@ -71,7 +87,7 @@ class Item extends StatelessWidget {
               style: TextStyle(
                   color: Color(0xFF4C53A5),
                   fontWeight: FontWeight.w700,
-                  fontSize: 20),
+                  fontSize: 18),
             ),
           ),
           const Padding(
@@ -88,10 +104,13 @@ class Item extends StatelessWidget {
                 '\$55',
                 style: TextStyle(
                     color: Color(0xFF4C53A5),
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
-              Icon(Icons.shopping_cart_checkout)
+              Icon(
+                Icons.shopping_cart_checkout,
+                color: Color(0xFF4C53A5),
+              )
             ],
           ),
         ],
