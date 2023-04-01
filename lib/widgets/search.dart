@@ -19,7 +19,7 @@ class SearchBar extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(left: 5),
             height: 50,
-            width: 300,
+            width: 290,
             child: TextFormField(
               decoration: const InputDecoration(
                   border: InputBorder.none, hintText: 'Search here...'),
