@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:shop/screens/cart_page.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -45,7 +46,9 @@ class HomeAppBar extends StatelessWidget {
                 size: 30,
                 color: Color(0xFF4C53A5),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(CartPage.routeName);
+              },
             ),
           ),
         ],

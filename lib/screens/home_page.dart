@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/widgets/home_app_bar.dart';
 
@@ -36,10 +37,27 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                ItemsWidget()
+                const ItemsWidget()
               ],
             ),
           ),
+        ],
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        color: const Color(0xFF4C53A5),
+        height: 50,
+        items: const [
+          Icon(
+            Icons.home,
+            color: Colors.white,
+            size: 30,
+          ),
+          Icon(
+            Icons.shopping_cart,
+            color: Colors.white,
+            size: 30,
+          )
         ],
       ),
     );
