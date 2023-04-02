@@ -13,7 +13,6 @@ class CartPage extends StatelessWidget {
         children: [
           const CartAppBar(),
           Container(
-            height: 300,
             padding: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
               color: Color(0xFFEDECF2),
@@ -21,7 +20,6 @@ class CartPage extends StatelessWidget {
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
-              
             ),
             child: CartItems(),
           )
