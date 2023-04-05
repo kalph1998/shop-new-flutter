@@ -13,6 +13,7 @@ class CartPage extends StatelessWidget {
         children: [
           const CartAppBar(),
           Container(
+            height: 700,
             padding: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
               color: Color(0xFFEDECF2),
@@ -21,37 +22,75 @@ class CartPage extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
             ),
-            child: Column(children: [
-              const CartItem(),
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                child: Row(children: [
-                  Container(
-                    margin: EdgeInsets.only(right: 10),
-                    padding: const EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF4C53A5),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 20,
-                    ),
+            child: Column(
+              children: [
+                const CartItem(),
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF4C53A5),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                      ),
+                      const Text(
+                        "Add Coupon Code",
+                        style: TextStyle(
+                          color: Color(0xFF4C53A5),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
                   ),
-                  Text(
-                    "Add Coupon Code",
-                    style: TextStyle(
-                        color: Color(0xFF4C53A5),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  )
-                ]),
-              )
-            ]),
+                )
+              ],
+            ),
           )
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 120,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(color: Colors.white),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "Total:",
+                      style: TextStyle(
+                        color: Color(0xFF4C53A5),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "\$250",
+                      style: TextStyle(
+                        color: Color(0xFF4C53A5),
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                ElevatedButton(onPressed: () {}, child: Text("Check out"))
+              ]),
+        ),
       ),
     );
   }
