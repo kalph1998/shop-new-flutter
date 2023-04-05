@@ -21,7 +21,35 @@ class CartPage extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
             ),
-            child: CartItems(),
+            child: Column(children: [
+              const CartItem(),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                child: Row(children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF4C53A5),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                  Text(
+                    "Add Coupon Code",
+                    style: TextStyle(
+                        color: Color(0xFF4C53A5),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  )
+                ]),
+              )
+            ]),
           )
         ],
       ),
