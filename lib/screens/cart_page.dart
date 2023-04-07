@@ -62,7 +62,7 @@ class CartPage extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         child: Container(
           height: 120,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(color: Colors.white),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,7 +88,26 @@ class CartPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                ElevatedButton(onPressed: () {}, child: Text("Check out"))
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF4C53A5),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    height: 50,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Check out",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                )
               ]),
         ),
       ),

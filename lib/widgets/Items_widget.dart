@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:shop/screens/item_page.dart';
 
 class ItemsWidget extends StatelessWidget {
   const ItemsWidget({super.key});
@@ -72,7 +73,7 @@ class Item extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () => {},
+            onTap: () => {Navigator.of(context).pushNamed(ItemPage.routeName)},
             child: Image.asset(
               "images/$index.png",
               width: 120,
