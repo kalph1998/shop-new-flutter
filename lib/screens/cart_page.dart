@@ -9,11 +9,11 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFEDECF2),
       body: ListView(
         children: [
           const CartAppBar(),
           Container(
-            height: 700,
             padding: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
               color: Color(0xFFEDECF2),
