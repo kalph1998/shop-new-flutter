@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/widgets/home_app_bar.dart';
 
-import '../widgets/Items_widget.dart';
+import '../widgets/products_widget.dart';
 import '../widgets/search.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                const ItemsWidget()
+                Container(height: 700, child: ProductsWidget())
               ],
             ),
           ),
