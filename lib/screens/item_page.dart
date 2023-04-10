@@ -9,6 +9,8 @@ class ItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String id = ModalRoute.of(context)?.settings.arguments as String;
+    print(id);
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),
       body: ListView(
@@ -51,7 +53,8 @@ class ItemPage extends StatelessWidget {
                           direction: Axis.horizontal,
                           itemCount: 5,
                           itemSize: 20,
-                          itemPadding: EdgeInsets.symmetric(horizontal: 4),
+                          itemPadding:
+                              const EdgeInsets.symmetric(horizontal: 4),
                           itemBuilder: (context, _) => Icon(
                             Icons.favorite,
                             color: Color(0xFF4C53A5),
@@ -115,7 +118,7 @@ class ItemPage extends StatelessWidget {
                       ],
                     ),
                     const Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      padding: EdgeInsets.symmetric(vertical: 20),
                       child: Text(
                         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
                         style: TextStyle(
@@ -134,7 +137,7 @@ class ItemPage extends StatelessWidget {
                             color: Color(0xFF4C53A5),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 14,
                         ),
                         Container(
