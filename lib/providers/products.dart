@@ -34,6 +34,7 @@ class Products with ChangeNotifier {
       price: 49.99,
       imageUrl:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
+      isFavorite: true,
     ),
   ];
 
@@ -44,5 +45,9 @@ class Products with ChangeNotifier {
   void addProduct() {
     // _items.add(value)
     notifyListeners();
+  }
+
+  Product getProductById(String id) {
+    return _items.firstWhere((element) => element.id == id);
   }
 }

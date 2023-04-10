@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ItemAppBar extends StatelessWidget {
-  const ItemAppBar({Key? key}) : super(key: key);
+  String productName;
+  bool isFavorite;
+  String productId;
+  ItemAppBar({
+    Key? key,
+    required this.isFavorite,
+    required this.productName,
+    required this.productId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +32,9 @@ class ItemAppBar extends StatelessWidget {
               const SizedBox(
                 width: 20,
               ),
-              const Text(
-                'Product',
-                style: TextStyle(
+              Text(
+                productName,
+                style: const TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF4C53A5),
@@ -34,8 +42,8 @@ class ItemAppBar extends StatelessWidget {
               )
             ],
           ),
-          const Icon(
-            Icons.favorite_border,
+          Icon(
+            isFavorite ? Icons.favorite : Icons.favorite_border,
             size: 30,
             color: Colors.red,
           )

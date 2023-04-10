@@ -1,6 +1,9 @@
 import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:shop/models/product.dart';
+import 'package:shop/providers/products.dart';
 import 'package:shop/widgets/item_app_bar.dart';
 
 class ItemPage extends StatelessWidget {
@@ -10,16 +13,23 @@ class ItemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String id = ModalRoute.of(context)?.settings.arguments as String;
-    print(id);
+
+    Product item =
+        Provider.of<Products>(context, listen: false).getProductById(id);
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),
       body: ListView(
         children: [
-          ItemAppBar(),
+          ItemAppBar(
+            isFavorite: item.isFavorite,
+            productName: item.title,
+            productId: item.id,
+          ),
           Padding(
-            padding: EdgeInsets.all(16),
-            child: Image.asset(
-              "images/1.png",
+            padding: const EdgeInsets.all(16),
+            child: Image.network(
+              item.imageUrl,
+              height: 400,
             ),
           ),
           Arc(
@@ -36,9 +46,9 @@ class ItemPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(top: 50, bottom: 20),
-                      child: const Text(
-                        "Product title",
-                        style: TextStyle(
+                      child: Text(
+                        item.title,
+                        style: const TextStyle(
                             fontSize: 28,
                             color: Color(0xFF4C53A5),
                             fontWeight: FontWeight.bold),
@@ -55,7 +65,7 @@ class ItemPage extends StatelessWidget {
                           itemSize: 20,
                           itemPadding:
                               const EdgeInsets.symmetric(horizontal: 4),
-                          itemBuilder: (context, _) => Icon(
+                          itemBuilder: (context, _) => const Icon(
                             Icons.favorite,
                             color: Color(0xFF4C53A5),
                           ),
@@ -117,11 +127,11 @@ class ItemPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Text(
-                        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-                        style: TextStyle(
+                        item.description,
+                        style: const TextStyle(
                           fontSize: 17,
                           color: Color(0xFF4C53A5),
                         ),
@@ -351,9 +361,9 @@ class ItemPage extends StatelessWidget {
           ),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            const Text(
-              "\$250",
-              style: TextStyle(
+            Text(
+              "\$${item.price.toString()}",
+              style: const TextStyle(
                 color: Color(0xFF4C53A5),
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -367,7 +377,7 @@ class ItemPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.shopping_cart_rounded,
                       color: Colors.white,
