@@ -21,19 +21,24 @@ class ProductsWidget extends StatelessWidget {
       ),
       itemCount: loadedProducts.length,
       itemBuilder: (BuildContext context, int index) {
-        return Item(item: loadedProducts[index]);
+        return ChangeNotifierProvider(
+          create: (context) => loadedProducts[index],
+          builder: (context, child) => Item(),
+        );
       },
     );
   }
 }
 
 class Item extends StatelessWidget {
-  final Product item;
-
-  const Item({super.key, required this.item});
+  const Item({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final Product item = Provider.of<Product>(context);
+
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
@@ -67,9 +72,14 @@ class Item extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Icon(
-                  Icons.favorite_outline,
-                  color: Colors.red,
+                InkWell(
+                  onTap: () {
+                    item.toggleFavoriteStatus();
+                  },
+                  child: Icon(
+                    item.isFavorite ? Icons.favorite : Icons.favorite_outline,
+                    color: Colors.red,
+                  ),
                 )
               ],
             ),
