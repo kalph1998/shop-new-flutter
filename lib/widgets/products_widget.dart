@@ -5,11 +5,15 @@ import 'package:shop/providers/products.dart';
 import 'package:shop/screens/item_page.dart';
 
 class ProductsWidget extends StatelessWidget {
-  const ProductsWidget({super.key});
+  final bool isFavoriteSelected;
+
+  const ProductsWidget({super.key, required this.isFavoriteSelected});
 
   @override
   Widget build(BuildContext context) {
-    final List<Product> loadedProducts = Provider.of<Products>(context).items;
+    final List<Product> loadedProducts = isFavoriteSelected
+        ? Provider.of<Products>(context).getFavoriteItems
+        : Provider.of<Products>(context).items;
 
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),

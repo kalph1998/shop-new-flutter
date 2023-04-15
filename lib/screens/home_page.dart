@@ -1,13 +1,24 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop/providers/products.dart';
 import 'package:shop/screens/cart_page.dart';
 import 'package:shop/widgets/home_app_bar.dart';
 
 import '../widgets/products_widget.dart';
 import '../widgets/search.dart';
 
-class HomePage extends StatelessWidget {
+enum FilterOptions { favorites, all }
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var _showOnlyFavorites = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +38,50 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 const SearchBar(),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.symmetric(vertical: 20),
-                  child: const Text(
-                    'Best selling',
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0xFF4C53A5),
-                        fontWeight: FontWeight.bold),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      margin: const EdgeInsets.symmetric(vertical: 20),
+                      child: const Text(
+                        'Best selling',
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Color(0xFF4C53A5),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Consumer<Products>(
+                      builder: (context, value, child) => PopupMenuButton(
+                          onSelected: (FilterOptions val) {
+                            setState(() {
+                              if (val == FilterOptions.favorites) {
+                                _showOnlyFavorites = true;
+                              } else {
+                                _showOnlyFavorites = false;
+                              }
+                            });
+                          },
+                          icon: const Icon(Icons.more_vert),
+                          itemBuilder: (_) => const [
+                                PopupMenuItem(
+                                  value: FilterOptions.all,
+                                  child: Text('Show All'),
+                                ),
+                                PopupMenuItem(
+                                  value: FilterOptions.favorites,
+                                  child: Text('Only Favorites'),
+                                ),
+                              ]),
+                    )
+                  ],
                 ),
-                Container(height: 700, child: ProductsWidget())
+                Container(
+                    height: 700,
+                    child: ProductsWidget(
+                      isFavoriteSelected: _showOnlyFavorites,
+                    ))
               ],
             ),
           ),
