@@ -44,11 +44,11 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       alignment: Alignment.centerLeft,
                       margin: const EdgeInsets.symmetric(vertical: 20),
-                      child: const Text(
+                      child: Text(
                         'Best selling',
                         style: TextStyle(
                             fontSize: 25,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
-        color: const Color(0xFF4C53A5),
+        color: Theme.of(context).primaryColor,
         height: 50,
         onTap: (index) {
           if (index == 1) {

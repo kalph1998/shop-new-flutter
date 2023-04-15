@@ -15,21 +15,21 @@ class CartAppBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () => {Navigator.of(context).popAndPushNamed('/')},
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back,
                   size: 30,
-                  color: Color(0xFF4C53A5),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
               const SizedBox(
                 width: 20,
               ),
-              const Text(
+              Text(
                 'Cart',
                 style: TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF4C53A5),
+                  color: Theme.of(context).primaryColor,
                 ),
               )
             ],

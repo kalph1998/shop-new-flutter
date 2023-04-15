@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
         title: 'Shop',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          // This is the theme of your application.
-          primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: Colors.white,
-        ),
+            // This is the theme of your application.
+            primarySwatch: Colors.blue,
+            scaffoldBackgroundColor: Colors.white,
+            primaryColor: const Color(0xFF4C53A5)),
         routes: {
           '/': (context) => HomePage(),
           CartPage.routeName: (context) => CartPage(),

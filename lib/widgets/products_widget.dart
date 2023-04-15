@@ -61,9 +61,9 @@ class Item extends StatelessWidget {
                 Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF4C53A5),
-                    borderRadius: BorderRadius.all(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(20),
                     ),
                   ),
@@ -107,8 +107,8 @@ class Item extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               item.title,
-              style: const TextStyle(
-                  color: Color(0xFF4C53A5),
+              style: TextStyle(
+                  color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.w700,
                   fontSize: 18),
             ),
@@ -117,7 +117,7 @@ class Item extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8),
             child: Text(
               item.description,
-              style: const TextStyle(color: Color(0xFF4C53A5)),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
           ),
           Spacer(),
@@ -126,14 +126,14 @@ class Item extends StatelessWidget {
             children: [
               Text(
                 '\$${item.price}',
-                style: const TextStyle(
-                    color: Color(0xFF4C53A5),
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
               Icon(
                 Icons.shopping_cart_checkout,
-                color: Color(0xFF4C53A5),
+                color: Theme.of(context).primaryColor,
               )
             ],
           ),

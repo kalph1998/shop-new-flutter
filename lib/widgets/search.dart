@@ -26,10 +26,10 @@ class SearchBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Icon(
+          Icon(
             Icons.camera_alt,
             size: 27,
-            color: Color(0xFF4C53A5),
+            color: Theme.of(context).primaryColor,
           )
         ],
       ),

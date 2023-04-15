@@ -14,13 +14,13 @@ class HomeAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children: const [
+            children: [
               Icon(
                 Icons.sort,
                 size: 30,
-                color: Color(0xFF4C53A5),
+                color: Theme.of(context).primaryColor,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Text(
@@ -28,7 +28,7 @@ class HomeAppBar extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF4C53A5),
+                  color: Theme.of(context).primaryColor,
                 ),
               )
             ],
@@ -41,10 +41,10 @@ class HomeAppBar extends StatelessWidget {
             badgeStyle: const badges.BadgeStyle(
                 badgeColor: Colors.red, padding: EdgeInsets.all(6)),
             child: InkWell(
-              child: const Icon(
+              child: Icon(
                 Icons.shopping_bag_outlined,
                 size: 30,
-                color: Color(0xFF4C53A5),
+                color: Theme.of(context).primaryColor,
               ),
               onTap: () {
                 Navigator.of(context).pushNamed(CartPage.routeName);

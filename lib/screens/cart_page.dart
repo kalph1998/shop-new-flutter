@@ -34,7 +34,7 @@ class CartPage extends StatelessWidget {
                         margin: const EdgeInsets.only(right: 10),
                         padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF4C53A5),
+                          color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Icon(
@@ -43,10 +43,10 @@ class CartPage extends StatelessWidget {
                           size: 20,
                         ),
                       ),
-                      const Text(
+                      Text(
                         "Add Coupon Code",
                         style: TextStyle(
-                          color: Color(0xFF4C53A5),
+                          color: Theme.of(context).primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -69,11 +69,11 @@ class CartPage extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       "Total:",
                       style: TextStyle(
-                        color: Color(0xFF4C53A5),
+                        color: Theme.of(context).primaryColor,
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
@@ -81,7 +81,7 @@ class CartPage extends StatelessWidget {
                     Text(
                       "\$250",
                       style: TextStyle(
-                        color: Color(0xFF4C53A5),
+                        color: Theme.of(context).primaryColor,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
@@ -93,13 +93,13 @@ class CartPage extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      color: Color(0xFF4C53A5),
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(18),
                     ),
                     height: 50,
                     width: double.infinity,
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       "Check out",
                       style: TextStyle(
                           color: Colors.white,

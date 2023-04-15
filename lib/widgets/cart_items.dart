@@ -26,7 +26,7 @@ class CartItem extends StatelessWidget {
                     value: "",
                     groupValue: "",
                     onChanged: (value) {},
-                    activeColor: const Color(0xFF4C53A5),
+                    activeColor: Theme.of(context).primaryColor,
                   ),
                   Container(
                     height: 70,
@@ -39,13 +39,13 @@ class CartItem extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text(
                           "Product title",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         Text(
@@ -53,7 +53,7 @@ class CartItem extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ],
@@ -86,18 +86,18 @@ class CartItem extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.add,
-                                color: Color(0xFF4C53A5),
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                             Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 10),
-                              child: const Text(
+                              child: Text(
                                 '01',
                                 style: TextStyle(
-                                  color: Color(0xFF4C53A5),
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -116,9 +116,9 @@ class CartItem extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.remove,
-                                color: Color(0xFF4C53A5),
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ],

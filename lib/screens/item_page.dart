@@ -48,9 +48,9 @@ class ItemPage extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 50, bottom: 20),
                       child: Text(
                         item.title,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 28,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -63,11 +63,10 @@ class ItemPage extends StatelessWidget {
                           direction: Axis.horizontal,
                           itemCount: 5,
                           itemSize: 20,
-                          itemPadding:
-                              const EdgeInsets.symmetric(horizontal: 4),
-                          itemBuilder: (context, _) => const Icon(
+                          itemPadding: EdgeInsets.symmetric(horizontal: 4),
+                          itemBuilder: (context, _) => Icon(
                             Icons.favorite,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                           ),
                           onRatingUpdate: (rating) {
                             print(rating);
@@ -88,18 +87,18 @@ class ItemPage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.add,
-                                color: Color(0xFF4C53A5),
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                             Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 10),
-                              child: const Text(
+                              child: Text(
                                 '01',
                                 style: TextStyle(
-                                  color: Color(0xFF4C53A5),
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -118,9 +117,9 @@ class ItemPage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.remove,
-                                color: Color(0xFF4C53A5),
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ],
@@ -131,20 +130,20 @@ class ItemPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Text(
                         item.description,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 17,
-                          color: Color(0xFF4C53A5),
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                     ),
                     Row(
                       children: [
-                        const Text(
+                        Text(
                           "Size:",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         const SizedBox(
@@ -166,10 +165,10 @@ class ItemPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          child: const Text(
+                          child: Text(
                             '5',
                             style: TextStyle(
-                              color: Color(0xFF4C53A5),
+                              color: Theme.of(context).primaryColor,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -191,10 +190,10 @@ class ItemPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          child: const Text(
+                          child: Text(
                             '6',
                             style: TextStyle(
-                              color: Color(0xFF4C53A5),
+                              color: Theme.of(context).primaryColor,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -216,10 +215,10 @@ class ItemPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          child: const Text(
+                          child: Text(
                             '7',
                             style: TextStyle(
-                              color: Color(0xFF4C53A5),
+                              color: Theme.of(context).primaryColor,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -241,10 +240,10 @@ class ItemPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          child: const Text(
+                          child: Text(
                             '8',
                             style: TextStyle(
-                              color: Color(0xFF4C53A5),
+                              color: Theme.of(context).primaryColor,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -252,17 +251,17 @@ class ItemPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: [
-                        const Text(
+                        Text(
                           "Color:",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF4C53A5),
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         SizedBox(
@@ -363,8 +362,8 @@ class ItemPage extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
               "\$${item.price.toString()}",
-              style: const TextStyle(
-                color: Color(0xFF4C53A5),
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
@@ -373,7 +372,7 @@ class ItemPage extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Color(0xFF4C53A5),
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(

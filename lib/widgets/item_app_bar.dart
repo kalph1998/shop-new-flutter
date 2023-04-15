@@ -23,10 +23,10 @@ class ItemAppBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () => {Navigator.of(context).popAndPushNamed('/')},
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back,
                   size: 30,
-                  color: Color(0xFF4C53A5),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
               const SizedBox(
@@ -34,10 +34,10 @@ class ItemAppBar extends StatelessWidget {
               ),
               Text(
                 productName,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF4C53A5),
+                  color: Theme.of(context).primaryColor,
                 ),
               )
             ],
