@@ -21,8 +21,8 @@ class ProductsWidget extends StatelessWidget {
       ),
       itemCount: loadedProducts.length,
       itemBuilder: (BuildContext context, int index) {
-        return ChangeNotifierProvider(
-          create: (context) => loadedProducts[index],
+        return ChangeNotifierProvider.value(
+          value: loadedProducts[index],
           builder: (context, child) => Item(),
         );
       },
@@ -37,7 +37,7 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Product item = Provider.of<Product>(context);
+    final Product item = Provider.of<Product>(context, listen: false);
 
     return Container(
       padding: const EdgeInsets.all(10),
@@ -72,15 +72,18 @@ class Item extends StatelessWidget {
                     ),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    item.toggleFavoriteStatus();
-                  },
-                  child: Icon(
-                    item.isFavorite ? Icons.favorite : Icons.favorite_outline,
-                    color: Colors.red,
-                  ),
-                )
+                Consumer<Product>(
+                    builder: (ctx, product, child) => InkWell(
+                          onTap: () {
+                            product.toggleFavoriteStatus();
+                          },
+                          child: Icon(
+                            product.isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_outline,
+                            color: Colors.red,
+                          ),
+                        ))
               ],
             ),
           ),

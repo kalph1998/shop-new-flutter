@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:shop/screens/cart_page.dart';
 import 'package:shop/widgets/home_app_bar.dart';
 
 import '../widgets/products_widget.dart';
@@ -47,6 +48,11 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         color: const Color(0xFF4C53A5),
         height: 50,
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.of(context).pushNamed(CartPage.routeName);
+          }
+        },
         items: const [
           Icon(
             Icons.home,
