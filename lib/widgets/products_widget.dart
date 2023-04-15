@@ -19,7 +19,7 @@ class ProductsWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.56,
+        childAspectRatio: 0.55,
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
