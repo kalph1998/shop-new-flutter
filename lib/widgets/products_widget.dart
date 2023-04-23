@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/providers/cart.dart';
 import 'package:shop/providers/product.dart';
 import 'package:shop/providers/products.dart';
 import 'package:shop/screens/item_page.dart';
@@ -42,6 +43,7 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Product item = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
 
     return Container(
       padding: const EdgeInsets.all(10),
