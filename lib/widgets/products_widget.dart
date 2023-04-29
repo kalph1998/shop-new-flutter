@@ -133,9 +133,14 @@ class Item extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
-              Icon(
-                Icons.shopping_cart_checkout,
-                color: Theme.of(context).primaryColor,
+              InkWell(
+                onTap: () {
+                  cart.addItem(item.id, item.price, item.title);
+                },
+                child: Icon(
+                  Icons.shopping_cart_checkout,
+                  color: Theme.of(context).primaryColor,
+                ),
               )
             ],
           ),
