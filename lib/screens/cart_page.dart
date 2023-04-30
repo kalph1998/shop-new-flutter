@@ -87,7 +87,7 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$250",
+                      '\$${cart.totalAmount}',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 25,
