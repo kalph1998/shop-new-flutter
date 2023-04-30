@@ -38,7 +38,7 @@ class HomeAppBar extends StatelessWidget {
           Consumer<Cart>(
             builder: (context, value, child) => badges.Badge(
               badgeContent: Text(
-                value.cartItemCount,
+                value.cartItemCount.toString(),
                 style: const TextStyle(color: Colors.white),
               ),
               badgeStyle: const badges.BadgeStyle(

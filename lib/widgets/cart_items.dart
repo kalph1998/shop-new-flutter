@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shop/providers/cart.dart';
 
-class CartItem extends StatelessWidget {
-  const CartItem({
+class CartProduct extends StatelessWidget {
+  Map<String, CartItem> cartItems;
+
+  CartProduct({
+    required this.cartItems,
     super.key,
   });
 

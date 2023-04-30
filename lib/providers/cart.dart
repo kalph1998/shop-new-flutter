@@ -21,8 +21,8 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
-  String get cartItemCount {
-    return cartItems.length.toString();
+  int get cartItemCount {
+    return cartItems.length;
   }
 
   void addItem(String productId, double price, String title) {
