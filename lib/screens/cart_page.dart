@@ -29,8 +29,14 @@ class CartPage extends StatelessWidget {
             child: Column(
               children: [
                 cart.cartItemCount != 0
-                    ? CartProduct(
-                        cartItems: cart.cartItems,
+                    ? Container(
+                        constraints: BoxConstraints(maxHeight: 400),
+                        child: ListView.builder(
+                          itemBuilder: (ctx, i) => CartProduct(
+                            cartItem: cart.cartItems.values.toList()[i],
+                          ),
+                          itemCount: cart.cartItems.length,
+                        ),
                       )
                     : const Text('cart empty'),
                 Container(

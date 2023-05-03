@@ -135,7 +135,7 @@ class Item extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  cart.addItem(item.id, item.price, item.title);
+                  cart.addItem(item.id, item.price, item.title, item.imageUrl);
                 },
                 child: Icon(
                   Icons.shopping_cart_checkout,
