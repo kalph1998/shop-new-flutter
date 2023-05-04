@@ -7,9 +7,16 @@ import 'package:shop/providers/product.dart';
 import 'package:shop/providers/products.dart';
 import 'package:shop/widgets/item_app_bar.dart';
 
-class ItemPage extends StatelessWidget {
+class ItemPage extends StatefulWidget {
   static const routeName = "itemPage";
   const ItemPage({Key? key}) : super(key: key);
+
+  @override
+  State<ItemPage> createState() => _ItemPageState();
+}
+
+class _ItemPageState extends State<ItemPage> {
+  int itemQuantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -92,16 +99,23 @@ class ItemPage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              child: Icon(
-                                Icons.add,
-                                color: Theme.of(context).primaryColor,
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    itemQuantity++;
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.add,
+                                  color: Theme.of(context).primaryColor,
+                                ),
                               ),
                             ),
                             Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                '01',
+                                itemQuantity.toString(),
                                 style: TextStyle(
                                   color: Theme.of(context).primaryColor,
                                   fontSize: 16,
