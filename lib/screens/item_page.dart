@@ -2,6 +2,7 @@ import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/providers/cart.dart';
 import 'package:shop/providers/product.dart';
 import 'package:shop/providers/products.dart';
 import 'package:shop/widgets/item_app_bar.dart';
@@ -14,16 +15,19 @@ class ItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     String id = ModalRoute.of(context)?.settings.arguments as String;
 
-    Product item =
-        Provider.of<Products>(context, listen: false).getProductById(id);
+    Product item = Provider.of<Products>(context).getProductById(id);
+    final cart = Provider.of<Cart>(context);
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),
       body: ListView(
         children: [
-          ItemAppBar(
-            isFavorite: item.isFavorite,
-            productName: item.title,
-            productId: item.id,
+          ChangeNotifierProvider.value(
+            value: item,
+            builder: (context, child) => ItemAppBar(
+              isFavorite: item.isFavorite,
+              productName: item.title,
+              productId: item.id,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -369,6 +373,9 @@ class ItemPage extends StatelessWidget {
               ),
             ),
             InkWell(
+              onTap: () {
+                cart.addItem(item.id, item.price, item.title, item.imageUrl);
+              },
               child: Container(
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(

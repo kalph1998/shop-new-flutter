@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop/providers/product.dart';
 
 class ItemAppBar extends StatelessWidget {
   String productName;
@@ -13,6 +15,7 @@ class ItemAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Product item = Provider.of<Product>(context);
     return Container(
       color: Colors.white,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -42,10 +45,15 @@ class ItemAppBar extends StatelessWidget {
               )
             ],
           ),
-          Icon(
-            isFavorite ? Icons.favorite : Icons.favorite_border,
-            size: 30,
-            color: Colors.red,
+          InkWell(
+            onTap: () {
+              item.toggleFavoriteStatus();
+            },
+            child: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_border,
+              size: 30,
+              color: Colors.red,
+            ),
           )
         ],
       ),
