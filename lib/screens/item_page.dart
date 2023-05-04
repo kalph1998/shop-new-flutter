@@ -15,7 +15,8 @@ class ItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     String id = ModalRoute.of(context)?.settings.arguments as String;
 
-    Product item = Provider.of<Products>(context).getProductById(id);
+    Product item =
+        Provider.of<Products>(context, listen: false).getProductById(id);
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),

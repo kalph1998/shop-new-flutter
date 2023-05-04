@@ -15,7 +15,6 @@ class ItemAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Product item = Provider.of<Product>(context);
     return Container(
       color: Colors.white,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -45,16 +44,19 @@ class ItemAppBar extends StatelessWidget {
               )
             ],
           ),
-          InkWell(
-            onTap: () {
-              item.toggleFavoriteStatus();
-            },
-            child: Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_border,
-              size: 30,
-              color: Colors.red,
-            ),
-          )
+          Consumer<Product>(
+              builder: (ctx, product, child) => InkWell(
+                    onTap: () {
+                      product.toggleFavoriteStatus();
+                    },
+                    child: Icon(
+                      product.isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_outline,
+                      color: Colors.red,
+                      size: 30,
+                    ),
+                  ))
         ],
       ),
     );
