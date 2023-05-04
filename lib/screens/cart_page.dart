@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/providers/cart.dart';
+import 'package:shop/providers/orders.dart';
 import 'package:shop/widgets/cart_app_bar.dart';
 import 'package:shop/widgets/cart_items.dart';
 
@@ -11,6 +12,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
+    final order = Provider.of<Orders>(context);
 
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),
@@ -105,7 +107,12 @@ class CartPage extends StatelessWidget {
                   ],
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    order.addOrder(
+                        cart.cartItems.values.toList(), cart.totalAmount);
+                    cart.clear();
+                    print(order.orders[0].amount);
+                  },
                   child: Container(
                     margin: EdgeInsets.all(5),
                     decoration: BoxDecoration(
