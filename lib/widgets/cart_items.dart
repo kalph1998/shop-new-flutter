@@ -55,7 +55,7 @@ class CartProduct extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '\$${cartItem.price * cartItem.quantity}',
+                        '\$${(cartItem.price * cartItem.quantity).toStringAsFixed(2)}',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
