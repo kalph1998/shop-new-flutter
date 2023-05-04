@@ -32,6 +32,7 @@ class CartPage extends StatelessWidget {
                     ? Container(
                         constraints: BoxConstraints(maxHeight: 400),
                         child: ListView.builder(
+                          shrinkWrap: true,
                           itemBuilder: (ctx, i) => CartProduct(
                             cartItem: cart.cartItems.values.toList()[i],
                           ),
