@@ -10,7 +10,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Cart>(context, listen: false);
+    final cart = Provider.of<Cart>(context);
 
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),
@@ -30,10 +30,11 @@ class CartPage extends StatelessWidget {
               children: [
                 cart.cartItemCount != 0
                     ? Container(
-                        constraints: BoxConstraints(maxHeight: 400),
+                        constraints: const BoxConstraints(maxHeight: 400),
                         child: ListView.builder(
                           shrinkWrap: true,
                           itemBuilder: (ctx, i) => CartProduct(
+                            productId: cart.cartItems.keys.toList()[i],
                             cartItem: cart.cartItems.values.toList()[i],
                           ),
                           itemCount: cart.cartItems.length,

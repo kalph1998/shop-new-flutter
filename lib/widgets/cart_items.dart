@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/providers/cart.dart';
 
 class CartProduct extends StatelessWidget {
   CartItem cartItem;
-
+  String productId;
   CartProduct({
     required this.cartItem,
+    required this.productId,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<Cart>(context, listen: false);
     return Column(
       children: [
         Padding(
@@ -52,7 +55,7 @@ class CartProduct extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        (cartItem.price * cartItem.quantity).toString(),
+                        '\$${cartItem.price * cartItem.quantity}',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -70,9 +73,14 @@ class CartProduct extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(
-                        Icons.delete,
-                        color: Colors.red,
+                      InkWell(
+                        onTap: () {
+                          cart.removeProduct(productId);
+                        },
+                        child: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
                       ),
                       Row(
                         children: [
@@ -89,9 +97,12 @@ class CartProduct extends StatelessWidget {
                                 )
                               ],
                             ),
-                            child: Icon(
-                              Icons.add,
-                              color: Theme.of(context).primaryColor,
+                            child: InkWell(
+                              onTap: () => {cart.increaseQuantity(productId)},
+                              child: Icon(
+                                Icons.add,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
                           ),
                           Container(
@@ -118,9 +129,12 @@ class CartProduct extends StatelessWidget {
                                 )
                               ],
                             ),
-                            child: Icon(
-                              Icons.remove,
-                              color: Theme.of(context).primaryColor,
+                            child: InkWell(
+                              onTap: () => {cart.decreaseQuantity(productId)},
+                              child: Icon(
+                                Icons.remove,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
                           ),
                         ],
