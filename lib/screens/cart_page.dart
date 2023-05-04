@@ -12,7 +12,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
-    final order = Provider.of<Orders>(context);
+    final order = Provider.of<Orders>(context, listen: false);
 
     return Scaffold(
       backgroundColor: Color(0xFFEDECF2),
@@ -111,7 +111,7 @@ class CartPage extends StatelessWidget {
                     order.addOrder(
                         cart.cartItems.values.toList(), cart.totalAmount);
                     cart.clear();
-                    print(order.orders[0].amount);
+                   
                   },
                   child: Container(
                     margin: EdgeInsets.all(5),
