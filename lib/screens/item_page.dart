@@ -136,9 +136,18 @@ class _ItemPageState extends State<ItemPage> {
                                   )
                                 ],
                               ),
-                              child: Icon(
-                                Icons.remove,
-                                color: Theme.of(context).primaryColor,
+                              child: InkWell(
+                                onTap: () {
+                                  if (itemQuantity != 1) {
+                                    setState(() {
+                                      itemQuantity--;
+                                    });
+                                  }
+                                },
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Theme.of(context).primaryColor,
+                                ),
                               ),
                             ),
                           ],
@@ -356,6 +365,9 @@ class _ItemPageState extends State<ItemPage> {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 30,
+                    )
                   ],
                 ),
               ),
@@ -389,7 +401,8 @@ class _ItemPageState extends State<ItemPage> {
             ),
             InkWell(
               onTap: () {
-                cart.addItem(item.id, item.price, item.title, item.imageUrl);
+                cart.addItem(item.id, item.price, item.title, item.imageUrl,
+                    productQuantity: itemQuantity);
               },
               child: Container(
                 padding: EdgeInsets.all(12),
