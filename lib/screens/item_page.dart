@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/providers/cart.dart';
 import 'package:shop/providers/product.dart';
 import 'package:shop/providers/products.dart';
+import 'package:shop/screens/cart_page.dart';
 import 'package:shop/widgets/item_app_bar.dart';
 
 class ItemPage extends StatefulWidget {
@@ -403,6 +404,14 @@ class _ItemPageState extends State<ItemPage> {
               onTap: () {
                 cart.addItem(item.id, item.price, item.title, item.imageUrl,
                     productQuantity: itemQuantity);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: const Text('Product added to cart'),
+                  action: SnackBarAction(
+                      label: 'Go to cart',
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(CartPage.routeName);
+                      }),
+                ));
               },
               child: Container(
                 padding: EdgeInsets.all(12),

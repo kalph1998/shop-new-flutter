@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/providers/cart.dart';
 import 'package:shop/providers/product.dart';
 import 'package:shop/providers/products.dart';
+import 'package:shop/screens/cart_page.dart';
 import 'package:shop/screens/item_page.dart';
 
 class ProductsWidget extends StatelessWidget {
@@ -136,6 +137,14 @@ class Item extends StatelessWidget {
               InkWell(
                 onTap: () {
                   cart.addItem(item.id, item.price, item.title, item.imageUrl);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: const Text('Product added to cart'),
+                    action: SnackBarAction(
+                        label: 'Go to cart',
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(CartPage.routeName);
+                        }),
+                  ));
                 },
                 child: Icon(
                   Icons.shopping_cart_checkout,
