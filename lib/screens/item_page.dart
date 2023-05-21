@@ -39,7 +39,7 @@ class _ItemPageState extends State<ItemPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Image.network(
+            child: Image.asset(
               item.imageUrl,
               height: 400,
             ),

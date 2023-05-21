@@ -28,28 +28,24 @@ class CartProduct extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Radio(
-                  value: "",
-                  groupValue: "",
-                  onChanged: (value) {},
-                  activeColor: Theme.of(context).primaryColor,
-                ),
                 Container(
+                  padding: EdgeInsets.only(left: 5),
                   height: 70,
                   width: 70,
                   margin: const EdgeInsets.only(right: 10),
-                  child: Image.network(cartItem.imageUrl),
+                  child: Image.asset(cartItem.imageUrl),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         cartItem.title,
+                        softWrap: true,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),

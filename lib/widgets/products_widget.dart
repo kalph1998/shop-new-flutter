@@ -20,7 +20,7 @@ class ProductsWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.55,
+        childAspectRatio: 0.50,
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
@@ -98,7 +98,7 @@ class Item extends StatelessWidget {
               Navigator.of(context)
                   .pushNamed(ItemPage.routeName, arguments: item.id)
             },
-            child: Image.network(
+            child: Image.asset(
               item.imageUrl,
               width: 120,
               height: 120,

@@ -7,12 +7,13 @@ class CartItem {
   final double price;
   final String imageUrl;
 
-  CartItem(
-      {required this.id,
-      required this.title,
-      required this.price,
-      required this.quantity,
-      required this.imageUrl});
+  CartItem({
+    required this.id,
+    required this.title,
+    required this.price,
+    required this.quantity,
+    required this.imageUrl,
+  });
 }
 
 class Cart with ChangeNotifier {
